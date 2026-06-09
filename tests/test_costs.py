@@ -258,8 +258,8 @@ def test_costs_refit_matches_fresh_fit(cost_name):
 
 
 def test_costrbf_refit_gamma():
-    """The median-heuristic gamma is recomputed for each fitted signal, while
-    a user-supplied gamma is kept (#372)."""
+    """The median-heuristic gamma is recomputed for each fitted signal, while a
+    user-supplied gamma is kept (#372)."""
     signal1, _ = pw_constant(n_features=1, noise_std=1, seed=111111)
     signal2, _ = pw_constant(n_features=1, noise_std=3, seed=222222)
 
