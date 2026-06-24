@@ -50,6 +50,28 @@ def test_precision_recall(b_mb, margin):
     p, r = precision_recall(b, [b[-1]], margin=margin)
 
 
+def test_hausdorff_empty_intermediate_bkps():
+    """hausdorff must not crash when a partition has no intermediate breakpoints."""
+    # Both no intermediate breakpoints -> distance 0
+    assert hausdorff([500], [500]) == 0.0
+    # One side empty, the other not -> infinity
+    import math
+
+    assert math.isinf(hausdorff([500], [200, 500]))
+    assert math.isinf(hausdorff([200, 500], [500]))
+
+
+def test_meantime_empty_intermediate_bkps():
+    """meantime must not crash when a partition has no intermediate breakpoints."""
+    # Both no intermediate breakpoints -> distance 0
+    assert meantime([500], [500]) == 0.0
+    # One side empty -> infinity
+    import math
+
+    assert math.isinf(meantime([500], [200, 500]))
+    assert math.isinf(meantime([200, 500], [500]))
+
+
 @pytest.mark.parametrize(
     "metric", [hamming, hausdorff, meantime, precision_recall, randindex]
 )
