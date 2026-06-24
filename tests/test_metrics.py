@@ -51,7 +51,8 @@ def test_precision_recall(b_mb, margin):
 
 
 def test_hausdorff_empty_intermediate_bkps():
-    """hausdorff must not crash when a partition has no intermediate breakpoints."""
+    """Hausdorff must not crash when a partition has no intermediate
+    breakpoints."""
     # Both no intermediate breakpoints -> distance 0
     assert hausdorff([500], [500]) == 0.0
     # One side empty, the other not -> infinity
@@ -62,7 +63,8 @@ def test_hausdorff_empty_intermediate_bkps():
 
 
 def test_meantime_empty_intermediate_bkps():
-    """meantime must not crash when a partition has no intermediate breakpoints."""
+    """Meantime must not crash when a partition has no intermediate
+    breakpoints."""
     # Both no intermediate breakpoints -> distance 0
     assert meantime([500], [500]) == 0.0
     # One side empty -> infinity
